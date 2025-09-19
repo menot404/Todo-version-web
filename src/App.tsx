@@ -1,10 +1,10 @@
-import Loader from "./components/common/Interface"
+import Stats from "./components/Stats"
 
 function App() {
 
   return (
     <>
-    <Loader></Loader>
+    <Stats></Stats>
     </>
   )
 }
