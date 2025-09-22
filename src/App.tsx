@@ -1,10 +1,10 @@
-import Stats from "./components/Stats"
+import FormTodo from "./components/form/Form"
 
 function App() {
 
   return (
     <>
-    <Stats></Stats>
+      <FormTodo></FormTodo>
     </>
   )
 }
