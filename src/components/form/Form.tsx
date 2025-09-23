@@ -31,7 +31,17 @@ const FormSchema = z.object({
   deadline: z.string().min(1, { message: "La date limite est requise." }),
 })
 
-const FormTodo = () => {
+/**
+ * Formulaire d'ajout de tâche Todo
+ * @param onCancel Fonction appelée lors de l'annulation
+ * @param onSuccess Fonction appelée lors de la validation
+ */
+type FormTodoProps = {
+  onCancel?: () => void;
+  onSuccess?: () => void;
+};
+
+const FormTodo = ({ onCancel, onSuccess }: FormTodoProps) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -50,10 +60,12 @@ const FormTodo = () => {
         </pre>
       ),
     })
+    if (onSuccess) onSuccess();
   }
 
   function onReset() {
-    form.reset()
+    form.reset();
+    if (onCancel) onCancel();
   }
 
   return (
@@ -154,9 +166,7 @@ const FormTodo = () => {
             )}
           />
           <div className="flex gap-4 justify-end mt-6">
-            <CancelAlert
-              onReset={onReset}
-            />
+            <CancelAlert onReset={onReset} />
             <Button type="submit" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white">
               <CheckCircle className="w-5 h-5" /> Valider
             </Button>

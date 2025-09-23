@@ -1,10 +1,9 @@
-import FormTodo from "./components/form/Form"
-
+import HomeTodo from "./components/HomeTodo"
 function App() {
 
   return (
     <>
-      <FormTodo></FormTodo>
+      <HomeTodo></HomeTodo>
     </>
   )
 }
