@@ -1,9 +1,15 @@
 import TableStats from "./layouts/TableStats";
 import PieTodoChart from "./layouts/PieTodoChart";
+import ButtonCusto from "./ui/buttonCusto";
+import { X } from "lucide-react";
 
-const Stats = () => {
+interface StatsProps {
+  // onClose: () => void; --- IGNORE ---
+  onclose: () => void;
+}
+const Stats = ({onclose}: StatsProps ) => {
   return (
-    <div className="w-screen flex flex-col items-center justify-center gap-10 my-5">
+    <div className="w-full ">
       {/* Component TableStats */}
       <div>
         <TableStats/>
@@ -11,6 +17,13 @@ const Stats = () => {
       {/* Pie chart */}
       <div>
         <PieTodoChart/>
+      </div>
+      <div className="w-full flex justify-center mt-6 mb-10">
+        <ButtonCusto
+          icone={<X className="w-6 h-6"/>}
+          text="Fermer"
+          onClick={onclose}
+        />
       </div>
     </div>
   );

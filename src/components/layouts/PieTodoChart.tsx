@@ -39,7 +39,7 @@ const chartConfig = {
 
 const PieTodoChart = () => {
   return (
-    <Card className="flex flex-col border-none w-full">
+    <Card className=" w-1/2 md:max-w-2xl md:w-full mx-auto mb-6 border-lg">
       <CardHeader className="items-center pb-0 text-center">
         <CardTitle className="text-3xl text-center font-bold text-blue-700">Diagramme circulaire des tâches</CardTitle>
         <CardDescription>Répartition des statuts</CardDescription>
@@ -47,7 +47,7 @@ const PieTodoChart = () => {
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="[&_.recharts-text]:fill-background mx-auto aspect-square max-h-[250px]"
+          className="[&_.recharts-text]:fill-background mx-auto aspect-square max-h-[250px] md:max-h-[320px]"
         >
           <PieChart>
             <ChartTooltip
@@ -58,7 +58,7 @@ const PieTodoChart = () => {
                 dataKey="status"
                 className="fill-background"
                 stroke="none"
-                fontSize={10}
+                fontSize={13}
               />
             </Pie>
           </PieChart>
