@@ -1,9 +1,13 @@
 import HomeTodo from "./components/HomeTodo"
+import Interface from "./components/common/Interface"
+import useTimeLoading from "./logic/timeLoading"
 function App() {
 
   return (
     <>
-      <HomeTodo></HomeTodo>
+      {
+       useTimeLoading() ? <Interface/> : <HomeTodo />
+      }
     </>
   )
 }
